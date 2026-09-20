@@ -1,0 +1,80 @@
+{
+  "name": "@cruxexperts/cruxomni-omp-client",
+  "version": "0.1.0",
+  "description": "Crux Experts OmniRoute client for Oh My Pi with guided setup and verified administration",
+  "repository": { "type": "git", "url": "git+https://github.com/CruxExperts/CruxOmni-OMP-Client.git" },
+  "homepage": "https://github.com/CruxExperts/CruxOmni-OMP-Client#readme",
+  "bugs": { "url": "https://github.com/CruxExperts/CruxOmni-OMP-Client/issues" },
+  "keywords": ["omp", "oh-my-pi", "omniroute", "cruxexperts", "model-provider"],
+  "license": "MIT",
+  "author": "Crux Experts LLC",
+  "copyright": "Copyright (c) 2026 Crux Experts LLC",
+  "type": "module",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": [
+    "src",
+    "contracts",
+    "provenance",
+    "scripts",
+    "test/fixtures",
+    "assets",
+    "docs",
+    ".omp-plugin",
+    "README.md",
+    "SECURITY.md",
+    "CONTRIBUTING.md",
+    "CHANGELOG.md",
+    "ASSET_LICENSE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "VERSION",
+    "LICENSE"
+  ],
+  "omp": {
+    "name": "CruxOmni-OMP-Client",
+    "settings": {
+      "showSetupInvitation": { "type": "boolean", "default": true, "description": "Offer guided setup once for an unconfigured interactive profile" },
+      "notifyTransitions": { "type": "boolean", "default": true, "description": "Show provider connection state transitions" }
+    },
+    "extensions": ["./src/index.ts"],
+    "compatibility": {
+      "host": ">=18.2.3 <19",
+      "tested": ["18.2.3", "18.2.6"]
+    }
+  },
+  "packageManager": "bun@1.4.2",
+  "engines": {
+    "bun": ">=1.4.2"
+  },
+  "dependencies": {
+    "@oh-my-pi/pi-ai": ">=18.2.3 <19",
+    "@oh-my-pi/pi-tui": ">=18.2.3 <19",
+    "@oh-my-pi/pi-utils": ">=18.2.3 <19"
+  },
+  "peerDependencies": {
+    "@oh-my-pi/pi-coding-agent": ">=18.2.3 <19"
+  },
+  "devDependencies": {
+    "@oh-my-pi/pi-coding-agent": "18.2.6",
+    "@types/bun": "1.4.2",
+    "@types/node": "22.15.0",
+    "typescript": "5.8.3"
+  },
+  "scripts": {
+    "version:check": "bun run scripts/version.ts check",
+    "version:plan": "bun run scripts/version.ts plan",
+    "version:set": "bun run scripts/version.ts set",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "verify:contracts": "bun run scripts/verify-contracts.ts",
+    "verify:package": "bun run scripts/verify-package.ts",
+    "verify:marketplace": "bun run scripts/verify-marketplace.ts",
+    "export:release": "bun run scripts/export-release.ts",
+    "smoke": "bun run scripts/smoke.ts",
+    "smoke:installed": "OMP_SMOKE_HOST_MODE=installed-cli bun run scripts/smoke.ts",
+    "check:upstreams": "bun run scripts/check-upstreams.ts"
+  }
+}

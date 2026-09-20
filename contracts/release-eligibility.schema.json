@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cruxexperts.example/cruxomni-omp-client/contracts/release-eligibility.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schemaVersion", "recordKind", "release", "default", "operations"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schemaVersion": {"const": 1},
+    "recordKind": {"const": "omniroute-release-eligibility"},
+    "release": {
+      "type": "object", "additionalProperties": false, "required": ["repository", "tag", "commit"],
+      "properties": {"repository": {"const": "diegosouzapw/OmniRoute"}, "tag": {"const": "v3.8.50"}, "commit": {"const": "5458026c216f77a3da68ea49152dc33470cfe2cb"}}
+    },
+    "default": {
+      "type": "object", "additionalProperties": false, "required": ["status", "reason"],
+      "properties": {"status": {"const": "unavailable"}, "reason": {"type": "string", "minLength": 1}}
+    },
+    "operations": {"type": "array", "items": {"$ref": "#/$defs/operation"}}
+  },
+  "$defs": {
+    "operation": {
+      "type": "object", "additionalProperties": false, "required": ["operationId", "status", "reason", "source", "evidence"],
+      "properties": {
+        "operationId": {"type": "string", "minLength": 1},
+        "status": {"const": "verified"},
+        "reason": {"type": "string", "minLength": 1},
+        "source": {
+          "type": "object", "additionalProperties": false, "required": ["file", "sha256", "gitBlobSha"],
+          "properties": {"file": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "gitBlobSha": {"type": "string", "pattern": "^[a-f0-9]{40}$"}}
+        },
+        "evidence": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["kind", "detail"], "properties": {"kind": {"type": "string", "minLength": 1}, "detail": {"type": "string", "minLength": 1}}}},
+        "response": {
+          "type": "object", "additionalProperties": false, "required": ["required", "properties"],
+          "properties": {
+            "required": {"type": "array", "items": {"type": "string"}},
+            "properties": {"type": "object", "additionalProperties": {"type": "object", "additionalProperties": false, "required": ["type"], "properties": {"type": {"const": "string"}, "enum": {"type": "array", "items": {"type": "string"}}, "format": {"const": "date-time"}}}}
+          }
+        }
+      }
+    }
+  }
+}

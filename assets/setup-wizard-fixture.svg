@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">CruxOmni setup wizard fixture</title><desc id="desc">A documentation rendering of the sanitized OMP 18.2.6 fixture transcript; no live profile data.</desc>
+  <metadata>Copyright © 2026 Crux Experts LLC | https://www.cruxexperts.com/ | Private asset. Property of Crux Experts LLC. Use, reproduction, modification, distribution, or publication without prior written permission is prohibited. Public project-reference display is permitted by ASSET_LICENSE.md.</metadata>
+  <rect width="1280" height="720" rx="24" fill="#080c16"/><rect x="34" y="32" width="1212" height="656" rx="18" fill="#101827" stroke="#2e3b52" stroke-width="2"/>
+  <circle cx="70" cy="66" r="8" fill="#ff5f57"/><circle cx="96" cy="66" r="8" fill="#febc2e"/><circle cx="122" cy="66" r="8" fill="#28c840"/>
+  <text x="164" y="76" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="22" fill="#8794aa">FIXTURE UI • NO LIVE CREDENTIALS</text>
+  <text x="92" y="148" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="29" font-weight="700" fill="#f5f7fb">CruxOmni-OMP-Client — Setup</text>
+  <rect x="78" y="178" width="720" height="58" rx="10" fill="#ff5757"/><text x="107" y="216" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="25" font-weight="700" fill="#080c16">› Connection</text>
+  <g font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="25" fill="#c6d0e1"><text x="107" y="284">  Metadata (optional)</text><text x="107" y="338">  Administration (optional)</text><text x="107" y="392">  Pricing (optional)</text><text x="107" y="446">  Summary</text><text x="107" y="500">  Finish</text></g>
+  <text x="92" y="596" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="21" fill="#8794aa">↑/↓ navigate   Enter select   Esc cancel</text>
+  <text x="92" y="640" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="18" fill="#59677f">Rendered from a sanitized OMP 18.2.6 fixture transcript. Secret prompts are masked by OMP.</text>
+</svg>

@@ -1,0 +1,141 @@
+{
+  "kind": "omp_seller_pricing",
+  "schema_version": 1,
+  "generated_at": "2026-09-20T12:40:00Z",
+  "content_sha256": "5a36f79f76d7b80ed06708284d31447dcef47194b59793dec7f345fc0d06adb5",
+  "sources": [
+    {
+      "source_id": "fixture-pricing",
+      "source_url": "https://example.invalid/omniroute/pricing-fixture.json",
+      "last_success_at": "2026-09-20T12:40:00Z",
+      "expires_at": "2026-09-21T12:40:00Z",
+      "snapshot_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "last_error_code": null
+    }
+  ],
+  "owner_aliases": {
+    "openai": "openai"
+  },
+  "route_products": {
+    "openai": "direct"
+  },
+  "exact_mappings": [
+    {
+      "seller_id": "openai",
+      "product": "direct",
+      "model_key": "gpt-5-mini",
+      "native_model_id": "gpt-5-mini"
+    }
+  ],
+  "rates": [
+    {
+      "seller_id": "openai",
+      "product": "direct",
+      "model_key": "gpt-5-mini",
+      "native_model_id": null,
+      "meter": "input",
+      "unit": "million_tokens",
+      "currency": "USD",
+      "amount": "2.5",
+      "conditions": {},
+      "basis": "cash",
+      "rate_state": "known",
+      "source_id": "fixture-pricing",
+      "snapshot_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "source_locator": "fixture://pricing/openai/gpt-5-mini/input"
+    },
+    {
+      "seller_id": "openai",
+      "product": "direct",
+      "model_key": "gpt-5-mini",
+      "native_model_id": null,
+      "meter": "output",
+      "unit": "million_tokens",
+      "currency": "USD",
+      "amount": "10",
+      "conditions": {},
+      "basis": "cash",
+      "rate_state": "known",
+      "source_id": "fixture-pricing",
+      "snapshot_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "source_locator": "fixture://pricing/openai/gpt-5-mini/output"
+    },
+    {
+      "seller_id": "openai",
+      "product": "direct",
+      "model_key": "gpt-5-mini",
+      "native_model_id": null,
+      "meter": "cache_read",
+      "unit": "million_tokens",
+      "currency": "USD",
+      "amount": "0.25",
+      "conditions": {},
+      "basis": "cash",
+      "rate_state": "known",
+      "source_id": "fixture-pricing",
+      "snapshot_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "source_locator": "fixture://pricing/openai/gpt-5-mini/cache-read"
+    },
+    {
+      "seller_id": "openai",
+      "product": "direct",
+      "model_key": "gpt-5-mini",
+      "native_model_id": null,
+      "meter": "cache_write",
+      "unit": "million_tokens",
+      "currency": "USD",
+      "amount": "1.25",
+      "conditions": {},
+      "basis": "cash",
+      "rate_state": "known",
+      "source_id": "fixture-pricing",
+      "snapshot_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "source_locator": "fixture://pricing/openai/gpt-5-mini/cache-write"
+    },
+    {
+      "seller_id": "openai",
+      "product": "direct",
+      "model_key": "gpt-5-nano",
+      "native_model_id": "gpt-5-nano",
+      "meter": "input",
+      "unit": "request",
+      "currency": "USD",
+      "amount": null,
+      "conditions": {
+        "tier": "illustrative"
+      },
+      "basis": "reference",
+      "rate_state": "conditional",
+      "source_id": "fixture-pricing",
+      "snapshot_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "source_locator": "fixture://pricing/openai/gpt-5-nano/input"
+    },
+    {
+      "seller_id": "openai",
+      "product": "direct",
+      "model_key": "unmapped-demo",
+      "native_model_id": null,
+      "meter": "input",
+      "unit": "million_tokens",
+      "currency": "USD",
+      "amount": "1",
+      "conditions": {},
+      "basis": "cash",
+      "rate_state": "known",
+      "source_id": "fixture-pricing",
+      "snapshot_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "source_locator": "fixture://pricing/openai/unmapped-demo/input"
+    }
+  ],
+  "terms": [
+    {
+      "source_id": "fixture-pricing",
+      "snapshot_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "seller_id": "openai",
+      "product": "direct",
+      "plan_key": "fixture-plan",
+      "term_key": "cache-policy",
+      "value": "cache meters are illustrative"
+    }
+  ]
+}

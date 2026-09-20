@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CruxOmni marketplace preparation manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "name", "package", "version", "description", "entrypoint", "compatibility", "repository", "license", "publisher", "commands", "publication"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "id": { "const": "cruxomni-omp-client" },
+    "name": { "const": "CruxOmni-OMP-Client" },
+    "package": { "const": "@cruxexperts/cruxomni-omp-client" },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "description": { "type": "string", "minLength": 20, "maxLength": 180 },
+    "entrypoint": { "const": "./src/index.ts" },
+    "compatibility": {
+      "type": "object", "additionalProperties": false,
+      "required": ["host", "tested"],
+      "properties": { "host": { "const": ">=18.2.3 <19" }, "tested": { "const": ["18.2.3", "18.2.6"] } }
+    },
+    "repository": {
+      "type": "object", "additionalProperties": false,
+      "required": ["url", "homepage", "issues"],
+      "properties": { "url": { "type": "string", "format": "uri" }, "homepage": { "type": "string", "format": "uri" }, "issues": { "type": "string", "format": "uri" } }
+    },
+    "license": { "const": "MIT" },
+    "publisher": { "const": "Crux Experts LLC" },
+    "commands": { "const": ["/cruxomni", "/cruxomni-admin", "/cruxomni-pricing"] },
+    "publication": { "const": "prepared-not-published" }
+  }
+}

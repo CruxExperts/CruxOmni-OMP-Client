@@ -1,0 +1,86 @@
+name: standalone-package
+
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cruxomni-omp-client-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CI: "true"
+  npm_config_ignore_scripts: "true"
+  OMP_OMNIROUTE_API_KEY: ""
+  OMP_OMNIROUTE_BASE_URL: ""
+  OMP_OMNIROUTE_ADMIN_API_KEY: ""
+  OMP_OMNIROUTE_ADMIN_COOKIE: ""
+  OMP_OMNIROUTE_METADATA_API_KEY: ""
+
+jobs:
+  package:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with: { persist-credentials: false, fetch-depth: 1 }
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2
+        with: { bun-version: "1.4.2" }
+      - name: Install exact locked dependencies
+        run: bun install --frozen-lockfile --ignore-scripts
+      - name: Validate source, contracts, package, and marketplace metadata
+        run: |
+          set -euo pipefail
+          bun run check:upstreams
+          bun run verify:contracts
+          bun run typecheck
+          bun test
+          bun run verify:marketplace
+          bun run verify:package > "$RUNNER_TEMP/package-verification.json"
+          bun run export:release
+          (cd release && sha256sum -c SHA256SUMS.txt)
+      - name: Upload prepared artifacts
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: cruxomni-omp-client-${{ github.sha }}
+          path: |
+            release/
+            ${{ runner.temp }}/package-verification.json
+          if-no-files-found: error
+          retention-days: 14
+
+  host-smoke:
+    needs: package
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        omp: ["18.2.3", "18.2.6"]
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with: { persist-credentials: false, fetch-depth: 1 }
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2
+        with: { bun-version: "1.4.2" }
+      - name: Install exact locked dependencies
+        run: bun install --frozen-lockfile --ignore-scripts
+      - name: Download and verify OMP release through GitHub CLI
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OMP_VERSION: ${{ matrix.omp }}
+        run: |
+          set -euo pipefail
+          destination="$RUNNER_TEMP/omp-$OMP_VERSION"
+          mkdir -p "$destination"
+          gh release download "v$OMP_VERSION" --repo can1357/oh-my-pi --pattern omp-linux-x64 --pattern SHA256SUMS.txt --dir "$destination"
+          expected_binary="$(jq -r --arg tag "v$OMP_VERSION" '.artifacts[] | select(.upstream=="omp" and .release_tag==$tag) | .sha256' provenance/release-artifacts.json)"
+          expected_sums="$(jq -r --arg tag "v$OMP_VERSION" '.artifacts[] | select(.upstream=="omp" and .release_tag==$tag) | .checksums_sha256' provenance/release-artifacts.json)"
+          test "$(sha256sum "$destination/omp-linux-x64" | cut -d' ' -f1)" = "$expected_binary"
+          test "$(sha256sum "$destination/SHA256SUMS.txt" | cut -d' ' -f1)" = "$expected_sums"
+          test "$(awk '$2 == "omp-linux-x64" {print $1; exit}' "$destination/SHA256SUMS.txt")" = "$expected_binary"
+          chmod 0755 "$destination/omp-linux-x64"
+      - name: Run disposable lifecycle and wizard smoke
+        env:
+          OMP_BINARY_PATH: ${{ runner.temp }}/omp-${{ matrix.omp }}/omp-linux-x64
+        run: bun run smoke

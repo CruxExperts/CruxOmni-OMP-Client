@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-20T00:00:00Z",
+  "policy": {
+    "publication": "not_published",
+    "verification_only": true,
+    "checksums_are_release_expectations": true,
+    "no_local_paths_or_credentials": true
+  },
+  "artifacts": [
+    {
+      "id": "omp-linux-x64-18.2.3",
+      "upstream": "omp",
+      "kind": "release_asset",
+      "release_tag": "v18.2.3",
+      "peeled_commit": "a2d83061c5d673bf3ee495d7652b63ee5a0ceb14",
+      "url": "https://github.com/can1357/oh-my-pi/releases/download/v18.2.3/omp-linux-x64",
+      "sha256": "f85bdfb4a763d3399ddd18413f880b26b36da765aa75bd5fcc7d252239c7f17a",
+      "checksums_url": "https://github.com/can1357/oh-my-pi/releases/download/v18.2.3/SHA256SUMS.txt",
+      "checksums_sha256": "954ecc77d880fc94b95b84fb03bfc85b66eaa5722583fa9228941fc1322fc7cd",
+      "status": "verified_disposable_acquisition"
+    },
+    {
+      "id": "omp-linux-x64-18.2.6",
+      "upstream": "omp",
+      "kind": "release_asset",
+      "release_tag": "v18.2.6",
+      "peeled_commit": "78b753124d11f8dd3ae73e2524125890ff7c977e",
+      "url": "https://github.com/can1357/oh-my-pi/releases/download/v18.2.6/omp-linux-x64",
+      "sha256": "0f38598c91e823d8cce07f151ec3999d51f213fb2cc3e07d89f1af8eef9247a2",
+      "checksums_url": "https://github.com/can1357/oh-my-pi/releases/download/v18.2.6/SHA256SUMS.txt",
+      "checksums_sha256": "8e3e301ba16a8d0d83ce184b5d607a768ef0532bf0cdc088576671644ec3934d",
+      "status": "expected_and_recorded"
+    },
+    {
+      "id": "omniroute-source",
+      "upstream": "omniroute",
+      "kind": "source_archive",
+      "release_tag": "v3.8.50",
+      "peeled_commit": "5458026c216f77a3da68ea49152dc33470cfe2cb",
+      "url": "https://github.com/diegosouzapw/OmniRoute/archive/5458026c216f77a3da68ea49152dc33470cfe2cb.tar.gz",
+      "sha256": "2bb4a3cbdf153266c9e998d6f5cb3a68da3085a8a8ea53cffef84fdf901a7dd1",
+      "sha256_status": "verified",
+      "git_tree_sha1": "b57cf75da22d11dccc937e4415bb0449be97c774",
+      "status": "verified_disposable_acquisition"
+    }
+  ]
+}

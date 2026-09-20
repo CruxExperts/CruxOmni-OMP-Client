@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-20T12:44:59Z",
+  "selector_policy": {
+    "kind": "github_latest_release",
+    "selector_urls": [
+      "https://github.com/diegosouzapw/OmniRoute/releases/latest",
+      "https://github.com/can1357/oh-my-pi/releases/latest"
+    ],
+    "api_endpoint_template": "https://api.github.com/repos/{owner}/{repo}/releases/latest",
+    "selector_distinction": "GitHub Latest release designation and its redirect are authoritative; README version badges are npm badges and were not used as selectors. npm latest, main, installed versions, and local deployments are not release selectors.",
+    "recheck_required": true
+  },
+  "upstreams": [
+    {
+      "id": "omniroute",
+      "repository": "diegosouzapw/OmniRoute",
+      "compatibility_role": "descriptor-corpus provenance only; not a runtime package or exact server requirement",
+      "release": {
+        "tag": "v3.8.50",
+        "version": "3.8.50",
+        "release_id": 377371985,
+        "release_url": "https://github.com/diegosouzapw/OmniRoute/releases/tag/v3.8.50",
+        "selector_url": "https://github.com/diegosouzapw/OmniRoute/releases/latest",
+        "api_url": "https://api.github.com/repos/diegosouzapw/OmniRoute/releases/latest",
+        "tag_ref": "refs/tags/v3.8.50",
+        "annotated_tag_object": "6f5d4e00e817bc01b2ac16fdd66db3840c296416",
+        "peeled_commit": "5458026c216f77a3da68ea49152dc33470cfe2cb",
+        "commit_url": "https://github.com/diegosouzapw/OmniRoute/commit/5458026c216f77a3da68ea49152dc33470cfe2cb",
+        "retrieved_at": "2026-09-20T12:44:59Z",
+        "published_at": "2026-08-26T19:30:30Z",
+        "selector_and_api_agree": true
+      },
+      "artifact_integrity": {
+        "source_archive_url": "https://github.com/diegosouzapw/OmniRoute/archive/5458026c216f77a3da68ea49152dc33470cfe2cb.tar.gz",
+        "source_archive_sha256": "2bb4a3cbdf153266c9e998d6f5cb3a68da3085a8a8ea53cffef84fdf901a7dd1",
+        "source_archive_status": "verified_disposable_acquisition",
+        "release_assets_with_api_digests": [
+          {
+            "name": "latest.yml",
+            "url": "https://github.com/diegosouzapw/OmniRoute/releases/download/v3.8.50/latest.yml",
+            "digest": "sha256:ca126aae12cb0c938c0d56d81372b0abe954604232d57ef69e82eefdb6d5d54c"
+          }
+        ]
+      },
+      "source_hashes": [
+        {
+          "path": "package.json",
+          "algorithm": "git-blob-sha1",
+          "hash": "54a0bc149ed6b5bffa31c584f1aecee87c9d24b0",
+          "url": "https://github.com/diegosouzapw/OmniRoute/blob/5458026c216f77a3da68ea49152dc33470cfe2cb/package.json"
+        },
+        {
+          "path": "commit-tree",
+          "algorithm": "git-tree-sha1",
+          "hash": "b57cf75da22d11dccc937e4415bb0449be97c774",
+          "url": "https://github.com/diegosouzapw/OmniRoute/tree/5458026c216f77a3da68ea49152dc33470cfe2cb"
+        }
+      ]
+    },
+    {
+      "id": "omp",
+      "repository": "can1357/oh-my-pi",
+      "compatibility_role": "runtime host and SDK compatibility authority",
+      "release": {
+        "tag": "v18.2.6",
+        "version": "18.2.6",
+        "release_id": 391682356,
+        "release_url": "https://github.com/can1357/oh-my-pi/releases/tag/v18.2.6",
+        "selector_url": "https://github.com/can1357/oh-my-pi/releases/latest",
+        "api_url": "https://api.github.com/repos/can1357/oh-my-pi/releases/latest",
+        "tag_ref": "refs/tags/v18.2.6",
+        "annotated_tag_object": null,
+        "peeled_commit": "78b753124d11f8dd3ae73e2524125890ff7c977e",
+        "commit_url": "https://github.com/can1357/oh-my-pi/commit/78b753124d11f8dd3ae73e2524125890ff7c977e",
+        "retrieved_at": "2026-09-20T12:44:59Z",
+        "published_at": "2026-09-18T18:10:25Z",
+        "selector_and_api_agree": true
+      },
+      "artifact_integrity": {
+        "asset": {
+          "name": "omp-linux-x64",
+          "url": "https://github.com/can1357/oh-my-pi/releases/download/v18.2.6/omp-linux-x64",
+          "digest": "sha256:0f38598c91e823d8cce07f151ec3999d51f213fb2cc3e07d89f1af8eef9247a2",
+          "digest_source": "GitHub release asset API and plan-published integrity fact"
+        },
+        "checksums_asset_url": "https://github.com/can1357/oh-my-pi/releases/download/v18.2.6/SHA256SUMS.txt",
+        "checksums_cross_check_required": true
+      },
+      "source_hashes": [
+        {
+          "path": "packages/coding-agent/package.json",
+          "algorithm": "git-blob-sha1",
+          "hash": "832bfbf26de9a45b1ed5e921d31107279aedd581",
+          "url": "https://github.com/can1357/oh-my-pi/blob/78b753124d11f8dd3ae73e2524125890ff7c977e/packages/coding-agent/package.json"
+        },
+        {
+          "path": "commit-tree",
+          "algorithm": "git-tree-sha1",
+          "hash": "c77a948ec2bfb982944ede1737c6498bf454ba7b",
+          "url": "https://github.com/can1357/oh-my-pi/tree/78b753124d11f8dd3ae73e2524125890ff7c977e"
+        }
+      ]
+    }
+  ],
+  "package_source_hashes": [
+    {
+      "path": "src/pricing.ts",
+      "algorithm": "sha256",
+      "hash": "ec2c917b5b27c5a6157a40900b09c52adef25321919711abd30e96bfa507be05"
+    },
+    {
+      "path": "test/fixtures/pricing.json",
+      "algorithm": "sha256",
+      "hash": "df6b998e73afd83e9fbf12af0ab2260b317f673b6600adf3bdef1c682278b6d6"
+    }
+  ]
+}

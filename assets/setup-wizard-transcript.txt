@@ -1,0 +1,15 @@
+CruxOmni-OMP-Client — Setup
+
+  ❯ Connection
+    Metadata (optional)
+    Administration (optional)
+    Pricing (optional)
+    Summary
+    Finish
+
+up/down navigate  enter select  esc cancel
+
+Captured from the disposable OMP 18.2.6 PTY fixture on 2026-09-20.
+The fixture profile, terminal control sequences, paths, ports, and credentials
+were removed. The capture exercised `/cruxomni setup`, rendered this menu, and
+cancelled with Escape. No live profile or gateway was used.

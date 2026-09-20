@@ -1,0 +1,21 @@
+schema_version: 1
+root: docs
+documents:
+  - id: installation
+    path: docs/installation.md
+    title: Installation and Guided Setup
+    category_label: User guide
+    category_slug: user-guide
+    status: active
+    last_updated: "2026-09-20"
+    doc_type: how_to
+    tags: [install, setup, omp, credentials]
+  - id: troubleshooting
+    path: docs/troubleshooting.md
+    title: Troubleshooting and Recovery
+    category_label: User guide
+    category_slug: user-guide
+    status: active
+    last_updated: "2026-09-20"
+    doc_type: reference
+    tags: [troubleshooting, recovery, offline, administration]

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="480" viewBox="0 0 1440 480" role="img" aria-labelledby="title desc">
+  <title id="title">CruxOmni-OMP-Client banner</title><desc id="desc">A dark routing grid with the CruxOmni product message.</desc>
+  <metadata>Copyright © 2026 Crux Experts LLC | https://www.cruxexperts.com/ | Private asset. Property of Crux Experts LLC. Use, reproduction, modification, distribution, or publication without prior written permission is prohibited. Public project-reference display is permitted by ASSET_LICENSE.md.</metadata>
+  <defs><linearGradient id="bg" x1="0" x2="1"><stop stop-color="#080d1a"/><stop offset="1" stop-color="#19243b"/></linearGradient><pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0v48" fill="none" stroke="#ffffff" stroke-opacity=".055"/></pattern></defs>
+  <rect width="1440" height="480" rx="34" fill="url(#bg)"/><rect width="1440" height="480" rx="34" fill="url(#grid)"/>
+  <g transform="translate(95 104)" fill="none" stroke-linecap="round"><path d="M116 0 16 58v116l100 58 100-58V58Z" stroke="#f8fafc" stroke-width="18"/><path d="M54 116h124M116 54v124" stroke="#ff5757" stroke-width="22"/><circle cx="116" cy="116" r="27" fill="#f8fafc" stroke="#10182a" stroke-width="10"/></g>
+  <text x="385" y="193" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="82" font-weight="760" fill="#f8fafc">CruxOmni</text>
+  <text x="390" y="254" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="27" font-weight="650" letter-spacing="6" fill="#ff7373">OMP CLIENT</text>
+  <text x="390" y="321" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="30" fill="#c5cede">Guided setup. Live model discovery. Verified administration.</text>
+  <g fill="#ff5757"><circle cx="1180" cy="124" r="10"/><circle cx="1280" cy="240" r="10"/><circle cx="1160" cy="355" r="10"/></g><path d="M1000 240h280M1080 124h100l100 116-120 115h-160" fill="none" stroke="#ff5757" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
