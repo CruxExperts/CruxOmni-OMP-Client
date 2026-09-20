@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
 import { lstat, mkdir, mkdtemp, readFile, realpath, rm, stat, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { isAbsolute, join, resolve } from "node:path";
+import { isAbsolute, join, relative, resolve } from "node:path";
 import { spawn } from "node:child_process";
 import { verifyPackage, type PackageVerificationResult } from "./verify-package.ts";
 
@@ -51,8 +51,8 @@ function expectedAssets(provenance: JsonObject): ExpectedHost[] {
 }
 
 function isWithin(root: string, candidate: string): boolean {
-  const relative = resolve(candidate).slice(resolve(root).length);
-  return relative === "" || relative.startsWith("/");
+  const path = relative(resolve(root), resolve(candidate));
+  return path === "" || (!path.startsWith("..") && !isAbsolute(path));
 }
 
 async function sha256File(path: string): Promise<string> {
