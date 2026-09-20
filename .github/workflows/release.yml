@@ -22,6 +22,7 @@ jobs:
         run: |
           set -euo pipefail
           gpg --batch --import .github/crux-experts-release-signing-key.asc
+          git fetch --force origin "refs/tags/$RELEASE_TAG:refs/tags/$RELEASE_TAG"
           test "$(git cat-file -t "$RELEASE_TAG")" = tag
           verification="$(git verify-tag --raw "$RELEASE_TAG" 2>&1)"
           printf '%s\n' "$verification"
